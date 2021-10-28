@@ -1,50 +1,26 @@
-// var fireAndFury = function(tweet) {
-//   // Your code here
-//   let n = ""
-//   const fire =  tweet.match(/FIRE/g)
-//   fire.forEach((e,i)=>{
-//     if(i==0){
-//       n+= "You "
-//     }
-//     else{
-//       n+= "and you "
-//     }
-//     if(i==fire.length-1){
-//       n+= "are fired!"
-//     }
-//   })
-//   let m = ""
-//   const fury =  tweet.match(/FURY/g)
-//   fury.forEach((e,i)=>{
-//     if(i==0){
-//       m+= "I am "
-//     }
-//     else{
-//       m+= "really "
-//     }
-//     if(i==fury.length-1){
-//       m+= "furious"
-//     }
-//   })
-//   return m
-// }
+// let arr = [1,"*" , 5 , "+" , 7 , "*" , 10, "/" , 2,"+",2]
 
+// let r = [ ]
 
-// console.log(fireAndFury("FURYYYFIREYYFIRE"))
-
-function findUnique(numbers) {
-  // Return the unique number
-  let result = {}
-  numbers.forEach(e=>{
-    result[e] = result[e]+1 || 1
-  })
-  let c = Object.keys(result)
-  for(let i = 0 ; i < c.length ; i++){
-    if(result[c[i]] == 1){
-      return Number(c[i])
-    }
-  }
+// for(let i = 0 ; i < arr.length ;i++){
+  
+//   if(arr[i] == "*"){
+//     r.push(arr.shift(arr[i-1]) * arr[i+1])
+//   }
+//   if(arr[i] == "/" && arr[i-3] ){
+//     r.push(arr[i-1] / arr[i+1])
+//   }
+  
+// } 
+// console.log(r)
+function sumOfIntegersInString(s){
+  let rex = /[^0-9]/gi
+  let arr =s.split(rex)
+  arr = arr.filter(e=>e).map(e=> Number(e))
+  if(arr.length == 0 ) return 0
+  arr = arr.reduce((a,b)=>a+b)
+  return arr// what the function name says
 }
 
-
-console.log(findUnique([ 1, 8, 4, 4, 6, 1, 8 ]))
+console.log(sumOfIntegersInString("The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog"))
+console.log(sumOfIntegersInString("a bh njj"))
