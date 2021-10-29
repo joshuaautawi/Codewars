@@ -1,26 +1,39 @@
 // let arr = [1,"*" , 5 , "+" , 7 , "*" , 10, "/" , 2,"+",2]
 
-// let r = [ ]
+// function test (a){
+//   let r = [] 
 
-// for(let i = 0 ; i < arr.length ;i++){
+//   for(let i = 1 ; i < arr.length ;i+=2){
+
+//   } 
   
-//   if(arr[i] == "*"){
-//     r.push(arr.shift(arr[i-1]) * arr[i+1])
-//   }
-//   if(arr[i] == "/" && arr[i-3] ){
-//     r.push(arr[i-1] / arr[i+1])
-//   }
-  
-// } 
-// console.log(r)
-function sumOfIntegersInString(s){
-  let rex = /[^0-9]/gi
-  let arr =s.split(rex)
-  arr = arr.filter(e=>e).map(e=> Number(e))
-  if(arr.length == 0 ) return 0
-  arr = arr.reduce((a,b)=>a+b)
-  return arr// what the function name says
+// }
+// console.log(test(arr))
+
+function likes(names) {
+  // TODO
+  if(names.length == 0) return 'no one likes this'
+  if(names.length == 1) return `${names[0]} likes this`
+  if(names.length >=4){
+    return `${names[0]}, ${names[1]} and ${names.length-2} others likes this`
+  }
+  else if (names.length < 4){
+    return `${names.slice(0,names.length - 1).join(', ')} and ${names[names.length-1]} likes this`
+  }
+
 }
 
-console.log(sumOfIntegersInString("The30quick20brown10f0x1203jumps914ov3r1349the102l4zy dog"))
-console.log(sumOfIntegersInString("a bh njj"))
+
+// function likes ( names ){
+//   const l = names.length;
+//   if (!l) {
+//     return 'No one likes this';
+//   } else if (l === 1) {
+//     return `${names[0]} likes this.`;
+//   } else if (l <= 4) {
+//     return `${names.slice(0, l - 1).join(', ')} and ${names[l - 1]} like this.`;
+//   }
+//   return  `${names.slice(0, 2).join(', ')} and ${l - 2} others like this.`;
+// }
+
+console.log(likes(["Alex", "Jacob"]))
