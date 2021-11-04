@@ -10,30 +10,50 @@
 // }
 // console.log(test(arr))
 
-function likes(names) {
-  // TODO
-  if(names.length == 0) return 'no one likes this'
-  if(names.length == 1) return `${names[0]} likes this`
-  if(names.length >=4){
-    return `${names[0]}, ${names[1]} and ${names.length-2} others likes this`
-  }
-  else if (names.length < 4){
-    return `${names.slice(0,names.length - 1).join(', ')} and ${names[names.length-1]} likes this`
-  }
 
-}
-
-
-// function likes ( names ){
-//   const l = names.length;
-//   if (!l) {
-//     return 'No one likes this';
-//   } else if (l === 1) {
-//     return `${names[0]} likes this.`;
-//   } else if (l <= 4) {
-//     return `${names.slice(0, l - 1).join(', ')} and ${names[l - 1]} like this.`;
+// function maxSum(root) {
+//   if(root == null) return 0
+//   let main = root
+//   let counter = root.value
+//   let c = root.value
+//   let n = 0 
+//   while(root.right != null){
+//     n++
+//     if(n>1){
+//       counter+= root.left.value
+//     }
+//     else{
+//       counter+= root.right.value
+//     }
+//     root = root.right
 //   }
-//   return  `${names.slice(0, 2).join(', ')} and ${l - 2} others like this.`;
+//   while(main.left != null){
+//     n++
+//     if(n>1){
+//       c+= main.right.value
+//     }
+//     else{
+//       c+= main.left.value
+//     }
+//     main = main.left
+  
+//   }
+
+  
+//   return c>counter ?c : counter ; // TODO: implementation
+
 // }
 
-console.log(likes(["Alex", "Jacob"]))
+function getScore(n) {
+  // do your magic here
+  let total = 0
+  let add = 50
+  for(let i =1 ; i<= n;i++){
+    
+    total+= add
+    add = add+50
+  }
+  return total
+}
+
+console.log(getScore(3))
