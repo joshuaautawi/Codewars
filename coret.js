@@ -44,32 +44,19 @@
 
 // }
 
-class Node {
-  constructor(data){
-    this.data = data;
-    this.next = null;
+function getParticipants(handshakes){
+  // ...
+  if(handshakes == 0 ) return 1
+  if(handshakes == 1) return 2
+  let c = 2
+  let result = 1
+  while(result <= handshakes){
+    result+= c
+    c += 1
   }
-  
-}
-
-function sortedInsert(head, data) {
-  // Your code goes here.
-  // Remember to return the head of the list.
-  let current = head
-  let prev = null
-  while(current != null){
-    if(data < current.data){
-      let item = new Node(data)
-      prev.next = item
-      item.next = current
-
-    }
-    prev = current
-    current = current.next
-  }
-  return head
-}
+  console.log(result)
+  return c
+} 
 
 
-
-let arr = []
+console.log(getParticipants(7))
