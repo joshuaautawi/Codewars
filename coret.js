@@ -44,16 +44,32 @@
 
 // }
 
-function getScore(n) {
-  // do your magic here
-  let total = 0
-  let add = 50
-  for(let i =1 ; i<= n;i++){
-    
-    total+= add
-    add = add+50
+class Node {
+  constructor(data){
+    this.data = data;
+    this.next = null;
   }
-  return total
+  
 }
 
-console.log(getScore(3))
+function sortedInsert(head, data) {
+  // Your code goes here.
+  // Remember to return the head of the list.
+  let current = head
+  let prev = null
+  while(current != null){
+    if(data < current.data){
+      let item = new Node(data)
+      prev.next = item
+      item.next = current
+
+    }
+    prev = current
+    current = current.next
+  }
+  return head
+}
+
+
+
+let arr = []
