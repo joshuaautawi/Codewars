@@ -41,15 +41,22 @@
 //   return c>counter ?c : counter ; // TODO: implementation
 
 // }
-function digital_root(n) {
-  // ...
-  n = n.toString()
-  while(n.length != 1){
-    console.log("kepanggil")
-    let x = n.split("").reduce((a,b)=>Number(a)+Number(b))
-    console.log(x)
-    n = x.toString()
+function arrayDiff(a, b) {
+  if (b.length == 0 || a.length == 0) return a;
+  let obj = {};
+  const result = [];
+  for (let i = 0; i < a.length; i++) {
+    obj[a[i]] ? (obj[a[i]] = obj[a[i]] + 1) : (obj[a[i]] = 1);
   }
-  return Number(n)
+  for (let i = 0; i < b.length; i++) {
+    obj[b[i]] ? (obj[b[i]] = 0) : (obj[b[i]] = 0);
+  }
+  console.log(obj)
+  for (let i in obj) {
+    if (obj[i] > 0) {
+      result.push(Number(i));
+    } 
+  }
+  return result;
 }
-console.log(digital_root(16))
+console.log(arrayDiff([2,2,1],[2]))
