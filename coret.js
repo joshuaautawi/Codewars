@@ -41,22 +41,66 @@
 //   return c>counter ?c : counter ; // TODO: implementation
 
 // }
-function arrayDiff(a, b) {
-  if (b.length == 0 || a.length == 0) return a;
-  let obj = {};
-  const result = [];
-  for (let i = 0; i < a.length; i++) {
-    obj[a[i]] ? (obj[a[i]] = obj[a[i]] + 1) : (obj[a[i]] = 1);
+// function largestCrossSum(matrix) {
+//   // your code here
+//   let row =0
+//   let column = 0
+//   for(let i = 0 ; i < matrix.length ; i ++){
+//     matrix[i][i]
+//   }
+//   matrix.forEach(e=>{
+//     const x = e.reduce((a,b)=>a+b)
+//     x>row ? row = x  : x
+//   })
+//   return row
+// }
+// console.log(
+//   largestCrossSum([
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7, 8, 9],
+//   ])
+// );
+const axios = require("axios");
+async function getAuthorHistory(author) {
+  
+  const authorBaseUrl =
+    "https://jsonmock.hackerrank.com/api/article_users?username=";
+  const articleBaseUrl = "https://jsonmock.hackerrank.com/api/articles?author=";
+  let page = "&page=";
+  let present_page = "1";
+  let historyArr = [];
+  
+  let authorDetails = await axios(authorBaseUrl + author + page + present_page);
+  let articleDetails = await axios(
+    articleBaseUrl + author + page + present_page
+  );
+  console.log(authorDetails.data)
+  let loopPage =
+    authorDetails.data.total_pages >= articleDetails.data.total_pages
+      ? authorDetails.data.total_pages
+      : articleDetails.data.total_pages;
+      
+  for (let i = 0; i < loopPage; i++) {
+    authorDetails.data.data.forEach((e) => {
+      if (e.about) {
+        historyArr.push(e.about);
+      }
+    });
+    articleDetails.data.data.forEach((e) => {
+      if (e.title) {
+        historyArr.push(e.title);
+      } else if (e.story_title) {
+        historyArr.push(e.title);
+      }
+    });
+    present_page = (Number(present_page) + 1).toString(); 
+    authorDetails = await axios(authorBaseUrl + author + page + present_page)
+ 
+    articleDetails = await axios(authorBaseUrl + author + page + present_page)
   }
-  for (let i = 0; i < b.length; i++) {
-    obj[b[i]] ? (obj[b[i]] = 0) : (obj[b[i]] = 0);
-  }
-  console.log(obj)
-  for (let i in obj) {
-    if (obj[i] > 0) {
-      result.push(Number(i));
-    } 
-  }
-  return result;
+  
+  return historyArr.filter((e) => e);
 }
-console.log(arrayDiff([2,2,1],[2]))
+
+console.log(getAuthorHistory("coloneltcb"));
