@@ -1,15 +1,34 @@
-function persistence(num) {
-  //code me
-  num = num.toString();
-  let counter = 0
- 
-  while(num.length > 1){
-    let x = num.split("").reduce((a,b)=>Number(a)*Number(b))
-    num = x.toString()
-    counter++
+// function diagonalsOfSquare(array) {
+//     // your code
+
+//   }
+
+//   console.log(diagonalsOfSquare(["abcd", "kata", "abcd", "qwer"]))
+
+
+// function closestPower(n) {
+//   //Here we go...
+//   if(n <= 4 ) return 4
+//   let result; 
+//   for(let i = 2 ; i**2 <= n ;i++){
+//     if()
+//   }
+//   return 
+
+// }
+
+// console.log(closestPower(4))
+function narcissistic(value) {
+  // Code me to return true or false
+  value = value.toString()
+  const len = value.length 
+  let total = 0
+  for(let i = 0 ; i < len ; i++){
+    total += Number(value[i] ** len)
   }
-  return counter
-  
+  return total== value ? true : false
 }
 
-console.log(persistence(999))
+console.log(narcissistic(1652))
+
+
