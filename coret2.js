@@ -18,17 +18,33 @@
 // }
 
 // console.log(closestPower(4))
-function narcissistic(value) {
-  // Code me to return true or false
-  value = value.toString()
-  const len = value.length 
-  let total = 0
-  for(let i = 0 ; i < len ; i++){
-    total += Number(value[i] ** len)
-  }
-  return total== value ? true : false
-}
+// var oldLadySwallows = function(animals) {
+//   // Your code here!
+//   let arr = [ "fly","spider","bird","cat","dog","goat","cow","horse"]
+//   let obj = {}
+//   for(let i = 0 ;i < animals.length ; i++ ){
+//     obj[animals[i]]= obj[animals[i]]+1 || 1
+//   }
+//   console.log(obj)
+//   for(let i =0 ;i < arr.length; i++){
+//     if(animals.includes(arr[i]) && !animals.includes(arr[i+1])){
+//       obj[arr[i]] = obj[arr[i]]
+  
+//     }
+//     else if(animals.includes(arr[i])){
+//       obj[arr[i]] = obj[arr[i]]-1
+//     }
+    
+//   }
+//   // console.log(obj)
+//   let r = []
+//   for(let i in obj){
+//     if(obj[i] > 0){
+//       r.push(i)
+//     }
+//   }
+//   return r;
+// }
 
-console.log(narcissistic(1652))
 
-
+// console.log(oldLadySwallows([ 'spider', 'spider', 'spider', 'bird' ]))
