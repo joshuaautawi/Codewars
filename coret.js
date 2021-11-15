@@ -1,16 +1,18 @@
-function duplicateCount(text){
-  //...
-  let obj  = {}
-  for(let i = 0 ; i < text.length ;i ++){
-    obj[text[i]] = obj[text[i]] +1 || 1
+function oddRow(n) {
+  let c = 0
+  let r =1
+  let total = 0
+  for(let i =0  ;i < n ;i++){
+    r= r+c
+    c+=2
+    total++
   }
-  let r = ""
-  for(let i in obj ){
-    if(obj[i] >1){
-      r+=obj[i]
-    }
+  let result = []
+  for(let i = 0 ; i< total ;i++){
+    result.push(r)
+    r= r+2
   }
-  return r.length
+  return result
 }
 
-console.log(duplicateCount("aabbcde"))
+console.log(oddRow(5))
