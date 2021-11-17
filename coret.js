@@ -1,22 +1,15 @@
-function shortestStepsToNum(num) {
-  // Good Luck!
-
-  if(num <= 1 ) return 0
-  let r = 1
-  let c = 2
-  while(num != c){
-    if(c*2 > num){
-      c = c+1
-      console.log(c)
-      r++
-      return r
-    }
-    
-    c = c*2
-    r++
-
-  }
-  return r;
+function sortThePile(pileOfTowels, weeklyUsedTowels) {
+  // Your code here
+  weeklyUsedTowels.forEach((e) => {
+    let basket = pileOfTowels
+      .slice(-e)
+      .sort()
+      .reverse();
+      console.log(basket)
+    pileOfTowels = pileOfTowels.slice(0, -e);
+    pileOfTowels.push(...basket);
+  });
+  return pileOfTowels;
 }
 
-console.log(shortestStepsToNum(71))
+console.log(sortThePile(["blue", "red", "blue", "red", "blue"], [3]));
