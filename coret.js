@@ -1,18 +1,22 @@
-function oddRow(n) {
-  let c = 0
-  let r =1
-  let total = 0
-  for(let i =0  ;i < n ;i++){
-    r= r+c
-    c+=2
-    total++
+function shortestStepsToNum(num) {
+  // Good Luck!
+
+  if(num <= 1 ) return 0
+  let r = 1
+  let c = 2
+  while(num != c){
+    if(c*2 > num){
+      c = c+1
+      console.log(c)
+      r++
+      return r
+    }
+    
+    c = c*2
+    r++
+
   }
-  let result = []
-  for(let i = 0 ; i< total ;i++){
-    result.push(r)
-    r= r+2
-  }
-  return result
+  return r;
 }
 
-console.log(oddRow(5))
+console.log(shortestStepsToNum(71))
