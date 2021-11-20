@@ -1,19 +1,19 @@
-function order(words){
-  // ...  
-  if(!words) return ""
-  let rex = /[1-9]/g
-  let c = words.match(rex)
-  let obj = {}
-  for(let i = 0 ; i< c.length ;i++){
-    obj[c[i]] = i
-  }
-  words = words.split(" ")
-  let r = []
-  for(let i in obj){
-    r.push(words[obj[i]])
-  }
+function toCamelCase(str){
+  let rex = /[^a-z]/gi
+  str =str.replace(rex," ").split(" ")
+  let r = ""
+  str= str.forEach((e,i)=>{
+    if(i==0){
+      r+= e
+    }
+    if(i>0){
+      r+=e[0].toUpperCase()
+      r+=e.slice(1)
+    }
+    
+  })
   return r
-
 }
 
-console.log(order("is2 Thi1s T4est 3a"))
+
+console.log(toCamelCase("the_stealth_warrior"))
