@@ -1,19 +1,11 @@
-function toCamelCase(str){
-  let rex = /[^a-z]/gi
-  str =str.replace(rex," ").split(" ")
-  let r = ""
-  str= str.forEach((e,i)=>{
-    if(i==0){
-      r+= e
+var uniqueInOrder=function(iterable){
+  //your code here - remember iterable can be a string or an array
+  let r = []
+  for(let i = 0 ; i < iterable.length ; i++){
+    if(iterable[i] != iterable[i-1]){
+      r.push(iterable[i])
     }
-    if(i>0){
-      r+=e[0].toUpperCase()
-      r+=e.slice(1)
-    }
-    
-  })
+  }
   return r
 }
-
-
-console.log(toCamelCase("the_stealth_warrior"))
+console.log(uniqueInOrder("AAAABBBCCDAABBB"))
