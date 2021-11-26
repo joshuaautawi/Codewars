@@ -1,13 +1,13 @@
-function solution(str) {
-  if (str == "") return [];
-  let r = [ ]
-  for (let i = 0; i < str.length; i+=2) {
-    let s = str[i+1] ? str[i+1]:"_"
-    let t = str[i]+s
-    r.push(t)
+function twoSum(numbers, target) {
+  // ...
+  for(let i = 0 ; i < numbers.length ; i++){
+    for(let y = i+1 ; y < numbers.length;y++){
+      if(numbers[i] + numbers[y] == target){
+        return [i,y]
+      }
+    }
   }
-  return r
 }
 
 
-console.log(solution("abcdf"))
+console.log(twoSum([1, 2, 3], 4))

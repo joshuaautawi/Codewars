@@ -1,6 +1,2 @@
+pName n= n 
 
-
-
-avg :: [Float] -> Float
-
-avg x xs = []
