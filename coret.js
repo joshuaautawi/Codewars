@@ -1,13 +1,17 @@
-function twoSum(numbers, target) {
-  // ...
-  for(let i = 0 ; i < numbers.length ; i++){
-    for(let y = i+1 ; y < numbers.length;y++){
-      if(numbers[i] + numbers[y] == target){
-        return [i,y]
+function twistedSum(n) {
+  let total = 0 
+  for(let i = 0 ; i <= n ; i++){
+    if(i <10){
+      total+=i
+    }
+    else{
+      let x  = i.toString()
+      for(let y =0  ; y < x.length ; y++){
+        total += Number(x[y])
       }
     }
   }
+  return total
 }
 
-
-console.log(twoSum([1, 2, 3], 4))
+console.log(twistedSum(5640))
