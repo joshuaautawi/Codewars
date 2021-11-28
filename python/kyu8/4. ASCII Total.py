@@ -5,3 +5,4 @@ def uni_total(s):
         total = total + ord(i)
     return total
 
+    

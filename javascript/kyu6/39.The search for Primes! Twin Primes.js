@@ -8,25 +8,19 @@ function twinPrime(n) {
   let temp;
   let next;
   let counter = 0;
-  for (let i = 0; i < n; i++) {
+  for (let i = 0; i <= n + 1; i++) {
     if (isPrime(i)) {
       if (!temp) {
         temp = i;
         next = i;
       } else {
+        temp = next;
+        next = i;
         if (next - temp == 2) {
           counter++;
         }
-        temp = next;
-        next = i;
-        console.log(temp,next)
-        
       }
     }
-    
   }
-
   return counter;
 }
-
-console.log(twinPrime(12));
