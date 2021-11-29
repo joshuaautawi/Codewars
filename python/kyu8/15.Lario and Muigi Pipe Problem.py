@@ -4,8 +4,6 @@ def pipe_fix(nums):
 
     while i <= nums[len(nums)-1]:
         r.append(i)
-        i+=1
-        
+        i += 1
+
     return r
-        
-print(pipe_fix([1, 2, 3, 12]))
