@@ -12,5 +12,3 @@ def mag_number(info: Tuple[str, int]) -> int:
         x = 5        
     n = info[1] * 3
     return math.ceil(n/x)
-
-print(mag_number(("PT92", 6)))

@@ -1,25 +1,13 @@
-function goodVsEvil(good, evil) {
-  if (!good) return "Battle Result: Evil eradicates all trace of Good";
-  if (!evil) return "Battle Result: Good triumphs over Evil";
-  const g = [1, 2, 3, 3, 4, 10];
-  const e = [1, 2, 2, 2, 3, 5, 10];
-  let r1 = 0;
-  let r2 = 0;
-  good = good.split(" ");
-  evil = evil.split(" ");
-
-  for (let i = 0; i < good.length; i++) {
-    r1 += Number(good[i]) * g[i];
+function findUniq(arr) {
+  // do magic
+  let first = arr[0];
+  let second;
+  for (let i = 0; i < arr.length; i++) {
+    if (first != arr[i]) {
+      second = arr[i];
+      if (arr[i + 1] == first) return second;
+      if (arr[i + 1] == second) return first;
+      if (i == arr.length - 1) return arr[i];
+    }
   }
-  for (let i = 0; i < evil.length; i++) {
-    r2 += Number(evil[i]) * e[i];
-  }
-
-  return r1 > r2
-    ? "Battle Result: Good triumphs over Evil"
-    : r1 == r2
-    ? "Battle Result: No victor on this battle field"
-    : "Battle Result: Evil eradicates all trace of Good";
 }
-
-console.log(goodVsEvil("0 0 0 0 0 10", "0 1 1 1 1 0 0"));
