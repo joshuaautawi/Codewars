@@ -1,11 +1,12 @@
-def html_special_chars(data):
-    # your code here
-    data =data.replace("&","&amp")
-    data = data.replace("<", "&lt")
-    data = data.replace(">", "&gt")
-    data = data.replace('"', "&quot")
+def fillable(stock, merch, n):
+    # Your code goes here.
+    inv = {
+        'football': 4,
+        'boardgame': 10,
+        'leggos': 1,
+        'doll': 5
+    }
+    return True if inv[stock] >= n else False
 
-    return data
 
-
-print(html_special_chars("<h2>Hello World</h2>"))
+print(fillable())
