@@ -1,6 +1,6 @@
 function assembleString(array) {
-  if(!array.length){
-    return ""
+  if (!array.length) {
+    return "";
   }
   let res = array[0].split("");
   for (let i = 0; i < array[0].length; i++) {
